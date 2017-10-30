@@ -7,6 +7,9 @@ import pathToRegexp from 'path-to-regexp'
 import { message } from 'antd'
 import { YQL, CORS } from './config'
 
+let headers = new Headers()
+headers.append('Content-Type', 'application/json');
+
 const fetch = (options) => {
   let {
     method = 'get',
@@ -53,6 +56,8 @@ const fetch = (options) => {
     data = null
   }
 
+  axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+
   switch (method.toLowerCase()) {
     case 'get':
       return axios.get(url, {
@@ -87,6 +92,8 @@ export default function request (options) {
     }
   }
 
+  console.log(options)
+
   return fetch(options).then((response) => {
     const { statusText, status } = response
     let data = options.fetchType === 'YQL' ? response.data.query.results.json : response.data
@@ -95,6 +102,13 @@ export default function request (options) {
         list: data,
       }
     }
+
+    console.log({
+      success: true,
+      message: statusText,
+      statusCode: status,
+      ...data,
+    })
     return Promise.resolve({
       success: true,
       message: statusText,

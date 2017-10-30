@@ -49,19 +49,20 @@ const adminUsers = [
   {
     id: 0,
     username: 'admin',
-    password: 'admin',
+    password: 'readYiDu@2016',
     permissions: userPermission.ADMIN,
-  }, {
-    id: 1,
-    username: 'guest',
-    password: 'guest',
-    permissions: userPermission.DEFAULT,
-  }, {
-    id: 2,
-    username: '吴彦祖',
-    password: '123456',
-    permissions: userPermission.DEVELOPER,
-  },
+  }
+  // , {
+  //   id: 1,
+  //   username: 'guest',
+  //   password: 'guest',
+  //   permissions: userPermission.DEFAULT,
+  // }, {
+  //   id: 2,
+  //   username: '吴彦祖',
+  //   password: '123456',
+  //   permissions: userPermission.DEVELOPER,
+  // },
 ]
 
 const queryArray = (array, key, keyAlias = 'key') => {
@@ -86,6 +87,7 @@ const queryArray = (array, key, keyAlias = 'key') => {
 const NOTFOUND = {
   message: 'Not Found',
   documentation_url: 'http://localhost:8000/request',
+  contact: 'dylan@china.com'
 }
 
 module.exports = {
@@ -98,7 +100,7 @@ module.exports = {
       const now = new Date()
       now.setDate(now.getDate() + 1)
       res.cookie('token', JSON.stringify({ id: user[0].id, deadline: now.getTime() }), {
-        maxAge: 900000,
+        maxAge: 9000000,
         httpOnly: true,
       })
       res.json({ success: true, message: 'Ok' })

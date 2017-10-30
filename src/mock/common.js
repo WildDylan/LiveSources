@@ -23,8 +23,8 @@ const queryArray = (array, key, keyAlias = 'key') => {
 const NOTFOUND = {
   message: 'Not Found',
   documentation_url: 'http://localhost:8000/request',
+  contact: 'dylan@china.com'
 }
-
 
 let postId = 0
 const posts = Mock.mock({

@@ -11,27 +11,14 @@ const Routers = function ({ history, app }) {
     app,
     component: () => import('./routes/error'),
   })
+
   const routes = [
     {
-      path: '/dashboard',
-      models: () => [import('./models/dashboard')],
-      component: () => import('./routes/dashboard/'),
-    }, {
-      path: '/user',
-      models: () => [import('./models/user')],
-      component: () => import('./routes/user/'),
-    }, {
-      path: '/user/:id',
-      models: () => [import('./models/user/detail')],
-      component: () => import('./routes/user/detail/'),
-    }, {
       path: '/login',
       models: () => [import('./models/login')],
       component: () => import('./routes/login/'),
-    }, {
-      path: '/request',
-      component: () => import('./routes/request/'),
-    }, {
+    },
+    {
       path: '/UIElement/iconfont',
       component: () => import('./routes/UIElement/iconfont/'),
     }, {
@@ -49,27 +36,73 @@ const Routers = function ({ history, app }) {
     }, {
       path: '/UIElement/editor',
       component: () => import('./routes/UIElement/editor/'),
-    }, {
-      path: '/chart/lineChart',
-      component: () => import('./routes/chart/lineChart/'),
-    }, {
-      path: '/chart/barChart',
-      component: () => import('./routes/chart/barChart/'),
-    }, {
-      path: '/chart/areaChart',
-      component: () => import('./routes/chart/areaChart/'),
-    }, {
-      path: '/post',
-      models: () => [import('./models/post')],
-      component: () => import('./routes/post/'),
     },
+    // 城市生活
+    {
+      path: '/cityDashboard',
+      models: () => [import('./models/cityDashboard')],
+      component: () => import('./routes/cityDashboard')
+    },
+    // 城市管理
+    {
+      path: '/city',
+      models: () => [import('./models/city')],
+      component: () => import('./routes/city')
+    },
+    // 城市详情
+    {
+      path: '/city/:id',
+      models: () => [import('./models/city/detail')],
+      component: () => import('./routes/city/detail/'),
+    },
+    // 应用详情
+    {
+      path: '/application/:id',
+      models: () => [import('./models/city/application')],
+      component: () => import('./routes/city/application/'),
+    },
+    // 组件管理
+    {
+      path: '/moduleManagement',
+      models: () => [import('./models/moduleManagement/moduleManagement')],
+      component: () => import('./routes/moduleManagement')
+    },
+    // 组件详情
+    {
+      path: '/module/:id',
+      models: () => [import('./models/moduleManagement/detail')],
+      component: () => import('./routes/moduleManagement/detail/'),
+    },
+    // 大数据平台-信息采集分析
+    {
+      path: '/data/actionMonitor',
+      models: () => [import('./models/data/actionMonitor')],
+      component: () => import('./routes/data/actionMonitor')
+    },
+    // 大数据平台-服务监控告警
+    {
+      path: '/data/serviceMonitor',
+      models: () => [import('./models/data/serviceMonitor')],
+      component: () => import('./routes/data/serviceMonitor')
+    },
+    // 人员管理
+    {
+      path: '/person',
+      models: () => [import('./models/person')],
+      component: () => import('./routes/person')
+    },
+    {
+      path: '/media',
+      models: () => [import('./models/media')],
+      component: () => import('./routes/media')
+    }
   ]
 
   return (
     <ConnectedRouter history={history}>
       <App>
         <Switch>
-          <Route exact path="/" render={() => (<Redirect to="/dashboard" />)} />
+          <Route exact path="/" render={() => (<Redirect to="/cityDashboard" />)} />
           {
             routes.map(({ path, ...dynamics }, key) => (
               <Route key={key}

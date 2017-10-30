@@ -26,9 +26,9 @@ const Bread = ({ menu, location }) => {
 
   if (!current) {
     pathArray.push(menu[0] || {
-      id: 1,
+      id: 8,
       icon: 'laptop',
-      name: 'Dashboard',
+      name: 'City Dashboard',
     })
     pathArray.push({
       id: 404,

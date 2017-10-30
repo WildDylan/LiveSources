@@ -24,6 +24,10 @@ export default {
     //   "changeOrigin": true,
     //   "pathRewrite": { "^/api/v2" : "/api/v2" }
     // }
+    "/modularize/api/v1": {
+      "target": "http://localhost:21612",
+      "changeOrigin": true
+    },
   },
   env: {
     development: {
@@ -53,5 +57,10 @@ export default {
   dllPlugin: {
     exclude: ["babel-runtime", "roadhog", "cross-env"],
     include: ["dva/router", "dva/saga", "dva/fetch"]
+  },
+  autoprefixer: {
+    "browsers": [
+      "iOS >= 8", "Android >= 4"
+    ]
   }
 }

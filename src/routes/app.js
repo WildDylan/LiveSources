@@ -12,7 +12,7 @@ import '../themes/index.less'
 import './app.less'
 import Error from './error'
 
-const { prefix, openPages } = config
+const { prefix, openPages, name } = config
 
 const { Header, Bread, Footer, Sider, styles } = Layout
 let lastHref
@@ -85,16 +85,22 @@ const App = ({ children, dispatch, app, loading, location }) => {
     <div>
       <Loader fullScreen spinning={loading.effects['app/query']} />
       <Helmet>
-        <title>ANTD ADMIN</title>
+        <title>{name}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href={logo} type="image/x-icon" />
         {iconFontJS && <script src={iconFontJS} />}
         {iconFontCSS && <link rel="stylesheet" href={iconFontCSS} />}
       </Helmet>
       <div className={classnames(styles.layout, { [styles.fold]: isNavbar ? false : siderFold }, { [styles.withnavbar]: isNavbar })}>
-        {!isNavbar ? <aside className={classnames(styles.sider, { [styles.light]: !darkTheme })}>
-          {siderProps.menu.length === 0 ? null : <Sider {...siderProps} />}
-        </aside> : ''}
+        {
+          !isNavbar
+            ?
+          <aside className={classnames(styles.sider, { [styles.light]: !darkTheme })}>
+            {siderProps.menu.length === 0 ? null : <Sider {...siderProps} />}
+          </aside>
+            :
+            ''
+        }
         <div className={styles.main}>
           <Header {...headerProps} />
           <Bread {...breadProps} />

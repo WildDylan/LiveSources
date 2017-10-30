@@ -7,9 +7,7 @@ export default {
   state: {},
 
   effects: {
-    * login ({
-      payload,
-    }, { put, call, select }) {
+    * login ({ payload }, { put, call, select }) {
       const data = yield call(login, payload)
       const { locationQuery } = yield select(_ => _.app)
       if (data.success) {
@@ -18,7 +16,7 @@ export default {
         if (from && from !== '/login') {
           yield put(routerRedux.push(from))
         } else {
-          yield put(routerRedux.push('/dashboard'))
+          yield put(routerRedux.push('/cityDashboard'))
         }
       } else {
         throw data

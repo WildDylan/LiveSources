@@ -1,10 +1,13 @@
 const APIV1 = '/api/v1'
 const APIV2 = '/api/v2'
 
+const DATA_API_V1 = '/modularize/api/v1'
+
 module.exports = {
-  name: 'AntD Admin',
-  prefix: 'antdAdmin',
-  footerText: 'Ant Design Admin  © 2017 zuiidea',
+  name: 'YiDu Modularize',
+  prefix: 'modularizeAdmin',
+  secret: 'kbZct1uP',
+  footerText: 'YiDu Modularization Admin  © 2017 dylan',
   logo: '/logo.png',
   iconFontCSS: '/iconfont.css',
   iconFontJS: '/iconfont.js',
@@ -13,6 +16,7 @@ module.exports = {
   apiPrefix: '/api/v1',
   APIV1,
   APIV2,
+  DATA_API_V1,
   api: {
     userLogin: `${APIV1}/user/login`,
     userLogout: `${APIV1}/user/logout`,
@@ -26,4 +30,21 @@ module.exports = {
     v1test: `${APIV1}/test`,
     v2test: `${APIV2}/test`,
   },
+  dataApi: {
+    cityDashboard: `${DATA_API_V1}/cityDashboard.do`,
+    cityModule: `${DATA_API_V1}/cityModule.do`,
+    cityInfo: `${DATA_API_V1}/cityInfo.do`,
+    createCity: `${DATA_API_V1}/createCity.do`,
+    allUserInfo: `${DATA_API_V1}/allUserInfo.do`,
+    cityManagerUpdate: `${DATA_API_V1}/updateCityManager.do`,
+    queryCityApplication: `${DATA_API_V1}/queryCityApplication.do`,
+    userInfoWithId: `${DATA_API_V1}/queryUserWithId.do`,
+    updateUserInfo: `${DATA_API_V1}/updateUser.do`,
+    createNewUser: `${DATA_API_V1}/createUser.do`,
+    createApplication: `${DATA_API_V1}/createApplication.do`,
+    moduleListAPI: `${DATA_API_V1}/moduleList.do`,
+    createNewModuleAPI: `${DATA_API_V1}/createModule.do`,
+    queryModuleAPI: `${DATA_API_V1}/queryModule.do`,
+    updateModuleInfoAPI: `${DATA_API_V1}/updateModule.do`
+  }
 }

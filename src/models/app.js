@@ -22,8 +22,8 @@ export default {
       {
         id: 1,
         icon: 'laptop',
-        name: 'Dashboard',
-        router: '/dashboard',
+        name: 'CityDashboard',
+        router: '/cityDashboard',
       },
     ],
     menuPopoverVisible: false,
@@ -55,7 +55,7 @@ export default {
         clearTimeout(tid)
         tid = setTimeout(() => {
           dispatch({ type: 'changeNavbar' })
-        }, 300)
+        }, 250)
       }
     },
 
@@ -93,7 +93,7 @@ export default {
         })
         if (location.pathname === '/login') {
           yield put(routerRedux.push({
-            pathname: '/dashboard',
+            pathname: '/cityDashboard',
           }))
         }
       } else if (config.openPages && config.openPages.indexOf(locationPathname) < 0) {
@@ -143,10 +143,10 @@ export default {
     },
 
     switchTheme (state) {
-      window.localStorage.setItem(`${prefix}darkTheme`, !state.darkTheme)
+      window.localStorage.setItem(`${prefix}darkTheme`, true)
       return {
         ...state,
-        darkTheme: !state.darkTheme,
+        darkTheme: true,
       }
     },
 
